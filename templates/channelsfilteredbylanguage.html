@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Channel List</title>
+</head>
+<body>
+    <h1>Channel Filtered by Language</h1>
+    {% if channels %}
+        <table border="1">
+            <tr>
+                
+                <th>Channel Name</th>
+                <th>Language</th>
+            </tr>
+            {% for channel in channels %}
+            <tr>
+                
+                <td>{{ channel['channelName'] }}</td>
+                <td>{{ channel['channel_language'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No channels found.</p>
+    {% endif %}
+</body>
+</html>
