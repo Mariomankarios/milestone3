@@ -1,0 +1,20 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Welcome to the Satellite TV Network Dashboard</h1>
+    <ul>
+        <li><a href="{{ url_for('get_channels') }}">View Channels Filtered by Language</a></li>
+        <li><a href="{{ url_for('get_top_rockets') }}">View Top 5 Launching Rockets</a></li>
+        <li><a href="{{ url_for('top_channels_per_language') }}">View Top 5 Channels per Language</a></li>
+        <li><a href="/satellites">View Channels filtered by Region</a></li>
+        <li><a href="/satellites/position">View Channels by Longitude</a></li>
+        <li><a href="{{ url_for('register')}}">Register New User</a></li>
+        <li><a href="{{ url_for('favorite_channels') }}">Select Favorite Channels</a></li>
+    </ul>
+</body>
+</html>

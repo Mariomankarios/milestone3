@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Satellites by Region</title>
+</head>
+<body>
+    <h1>All Channels Categorized by Region</h1>
+    {% for region, satellites in satellites_by_region.items() %}
+        <h2>{{ region }} Region</h2>
+        {% if satellites %}
+            <table border="1">
+                <tr>
+                    <th>Channel Name</th>
+                    <th>Region</th>
+                </tr>
+                {% for satellite in satellites %}
+                <tr>
+                    <td>{{ satellite['Satellite_name'] }}</td>
+                    <td>{{ satellite['region'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No satellites found for this region.</p>
+        {% endif %}
+    {% endfor %}
+    <a href="/">Back to Home</a>
+</body>
+</html>

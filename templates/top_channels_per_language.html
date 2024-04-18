@@ -1,0 +1,27 @@
+<!-- templates/top_channels_per_language.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top 5 Channels for each Language</title>
+</head>
+<body>
+    <h1>Top 5 Channels for each Language</h1>
+    {% for channel_language, channels in channels_by_language.items() %}
+        <h2>Language: {{ channel_language }}</h2>
+        <table border="1">
+            <tr>
+                <th>Channel Name</th>
+                <th>Popularity</th>
+            </tr>
+            {% for channel in channels %}
+            <tr>
+                <td>{{ channel['channelName'] }}</td>
+                <td>{{ channel['popularity'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+    <a href="/">Back to Home</a>
+</body>
+</html>

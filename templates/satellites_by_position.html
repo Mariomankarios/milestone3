@@ -1,0 +1,37 @@
+<!-- templates/satellites_by_position.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Channels by Longitude</title>
+</head>
+<body>
+    <h1>View Channels by Longitude</h1>
+    <form action="/satellites/position" method="post">
+        <label for="position">Enter Longitude (between -180 and 180):</label>
+        <input type="text" id="position" name="position" placeholder="e.g., 80" required>
+        <button type="submit">View Channels</button>
+    </form>
+
+    {% if satellites is defined %}
+        <h2>Results for Longitude: {{ position }}</h2>
+        {% if satellites %}
+            <table border="1">
+                <tr>
+                    <th>Channel Name</th>
+                    <th>Longitude</th>
+                </tr>
+                {% for satellite in satellites %}
+                <tr>
+                    <td>{{ satellite['Satellite_name'] }}</td>
+                    <td>{{ satellite['position'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No Channels found within the specified range.</p>
+        {% endif %}
+    {% endif %}
+    <a href="/">Back to Home</a>
+</body>
+</html>
